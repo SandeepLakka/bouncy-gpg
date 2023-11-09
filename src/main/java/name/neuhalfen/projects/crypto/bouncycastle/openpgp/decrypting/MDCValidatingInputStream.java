@@ -62,7 +62,7 @@ final class MDCValidatingInputStream extends FilterInputStream {
    */
   private void validateMDC() throws IOException {
     try {
-      if (pbe.isIntegrityProtected()) {
+      if (pbe != null && pbe.isIntegrityProtected()) {
         if (!pbe.verify()) {
           throw new PGPException("Data is integrity protected but integrity check failed");
         }
